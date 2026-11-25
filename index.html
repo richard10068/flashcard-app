@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>Flashcard App</h1>
+    <p class="subtitle">Turn your notes into flashcards</p>
+
+    <div class="developer-info">
+      <p><strong>Developer:</strong> UZOR RICHARD AMAECHI</p>
+      <p><strong>Matric No:</strong> 240404010068</p>
+      <p><strong>Group:</strong> VPE Group 6</p>
+    </div>
+
+    <section class="panel">
+      <h2>Generate Cards from Notes</h2>
+      <p class="hint">Paste your notes below or upload a .txt file, and the app will turn them into flashcards.</p>
+
+      <div class="form-row">
+        <label for="notes-file">Upload a text file (.txt)</label>
+        <input type="file" id="notes-file" accept=".txt,.md,text/plain">
+      </div>
+
+      <div class="form-row">
+        <label for="notes-input">Your Notes</label>
+        <textarea id="notes-input" rows="8" placeholder="Example:&#10;CPU: the part of a computer that runs instructions.&#10;RAM is the short-term memory of a computer.&#10;HTML stands for HyperText Markup Language."></textarea>
+      </div>
+
+      <div class="form-row">
+        <label for="mode-select">Question Type</label>
+        <select id="mode-select">
+          <option value="both">Definitions and fill-in-the-blank</option>
+          <option value="definitions">Definitions only</option>
+          <option value="blanks">Fill-in-the-blank only</option>
+        </select>
+      </div>
+
+      <label class="check-row">
+        <input type="checkbox" id="replace-check">
+        Replace my current cards with the new ones
+      </label>
+
+      <button type="button" id="generate-btn" class="btn">Generate Cards</button>
+      <p id="generate-message" class="message" role="alert"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Add a Flashcard Yourself</h2>
+      <form id="card-form">
+        <div class="form-row">
+          <label for="question-input">Question</label>
+          <input type="text" id="question-input" maxlength="200" placeholder="e.g. What does CPU stand for?">
+        </div>
+        <div class="form-row">
+          <label for="answer-input">Answer</label>
+          <input type="text" id="answer-input" maxlength="300" placeholder="e.g. Central Processing Unit">
+        </div>
+        <button type="submit" class="btn">Add Card</button>
+      </form>
+      <p id="form-message" class="message" role="alert"></p>
+    </section>
+
+    <section class="panel" id="study-section">
+      <h2>Study</h2>
+      <p id="card-counter" class="counter">Card 0 of 0</p>
+
+      <button type="button" id="flashcard" class="flashcard" aria-label="Flip card">
+        <span class="card-inner">
+          <span class="card-face card-front">
+            <span class="face-label">Question</span>
+            <span id="card-question" class="face-text"></span>
+          </span>
+          <span class="card-face card-back">
+            <span class="face-label">Answer</span>
+            <span id="card-answer" class="face-text"></span>
+          </span>
+        </span>
+      </button>
+
+      <div class="controls">
+        <button type="button" id="prev-btn" class="btn">Previous</button>
+        <button type="button" id="flip-btn" class="btn btn-alt">Flip</button>
+        <button type="button" id="next-btn" class="btn">Next</button>
+      </div>
+
+      <div class="controls">
+        <button type="button" id="shuffle-btn" class="btn btn-secondary">Shuffle</button>
+        <button type="button" id="delete-btn" class="btn btn-danger">Delete Card</button>
+        <button type="button" id="reset-btn" class="btn btn-secondary">Reset to Samples</button>
+      </div>
+
+      <p class="hint">Tip: use the left and right arrow keys to move between cards.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Developed by UZOR RICHARD AMAECHI | Matric No: 240404010068 | VPE Group 6</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
